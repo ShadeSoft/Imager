@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Imager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Imager" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Margin="15">
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <TextBlock Margin="5">File or directory:</TextBlock>
+                <TextBox x:Name="textFile"
+                         Margin="5"
+                         Width="200"/>
+                <Button x:Name="btnFile"
+                        Content="Browse"
+                        Click="BtnFile_Click"
+                        ClickMode="Press"
+                        Margin="5"
+                        Padding="5 0 5 0"/>
+            </StackPanel>
+            
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <TextBlock Margin="5">Width:</TextBlock>
+                <TextBox x:Name="textWidth"
+                         Margin="5"
+                         PreviewTextInput="PreviewTextInput"
+                         Width="100"/>
+
+                <TextBlock Margin="5">Height:</TextBlock>
+                <TextBox x:Name="textHeight"
+                         Margin="5"
+                         PreviewTextInput="PreviewTextInput"
+                         Width="100"/>
+            </StackPanel>
+
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <TextBlock Margin="5">Mode:</TextBlock>
+                <RadioButton x:Name="modeWiden"
+                             Content="Widen"
+                             Checked="Mode_Checked"
+                             GroupName="mode"
+                             Margin="5"/>
+                <RadioButton x:Name="modeHeighten"
+                             Content="Heighten"
+                             Checked="Mode_Checked"
+                             GroupName="mode"
+                             Margin="5"/>
+                <RadioButton x:Name="modeMaximize"
+                             Content="Maximize"
+                             Checked="Mode_Checked"
+                             GroupName="mode"
+                             Margin="5"/>
+                <RadioButton x:Name="modeThumbnail"
+                             Content="Thumbnail"
+                             Checked="Mode_Checked"
+                             GroupName="mode"
+                             Margin="5"/>
+            </StackPanel>
+
+            <Button x:Name="btnStart"
+                    Content="Start"
+                    Click="BtnStart_Click"
+                    ClickMode="Release"
+                    Margin="15"
+                    Width="150"/>
+        </StackPanel>
     </Grid>
 </Window>
