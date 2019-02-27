@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Imager
 {
@@ -23,23 +24,26 @@ namespace Imager
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static readonly Regex number = new Regex("[^0-9]+");
-
-        private string mode;
+        private string
+            mode,
+            format,
+            input,
+            output;
+        private bool inputIsFolder;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private static bool IsTextAllowed(string text)
-        {
-            return !number.IsMatch(text);
-        }
-
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void NumberInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = (new Regex("[^0-9]+")).IsMatch(e.Text);
         }
 
         private void Mode_Checked(object sender, RoutedEventArgs e)
@@ -48,17 +52,44 @@ namespace Imager
             //System.Diagnostics.Debug.WriteLine(mode);
         }
 
-        private void PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void Format_Checked(object sender, RoutedEventArgs e)
         {
-            e.Handled = !IsTextAllowed(e.Text);
+            format = ((RadioButton)sender).Name.Replace("format", "").ToLower();
         }
 
-        private void BtnFile_Click(object sender, RoutedEventArgs e)
+        private void BtnInput_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+
+            // enable folder selection and make it default
+            ofd.ValidateNames = false;
+            ofd.CheckFileExists = false;
+            ofd.CheckPathExists = true;
+            ofd.FileName = "Whole folder";
+
             if(ofd.ShowDialog() == true)
             {
-                textFile.Text = ofd.FileName;
+                string dirName = Path.GetDirectoryName(ofd.FileName);
+                string fileName = Path.GetFileName(ofd.FileName);
+
+                inputIsFolder = fileName == "Whole folder";
+                textInput.Text = input = dirName + (!inputIsFolder ? ("\\" + fileName) : "");
+            }
+        }
+
+        private void BtnOutput_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            // enable folder selection and make it default
+            ofd.ValidateNames = false;
+            ofd.CheckFileExists = false;
+            ofd.CheckPathExists = true;
+            ofd.FileName = "Output folder";
+
+            if(ofd.ShowDialog() == true)
+            {
+                textOutput.Text = output = Path.GetDirectoryName(ofd.FileName);
             }
         }
     }

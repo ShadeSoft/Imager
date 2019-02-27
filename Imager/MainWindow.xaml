@@ -9,13 +9,26 @@
     <Grid>
         <StackPanel Margin="15">
             <StackPanel Margin="15" Orientation="Horizontal">
-                <TextBlock Margin="5">File or directory:</TextBlock>
-                <TextBox x:Name="textFile"
+                <TextBlock Margin="5">File or folder:</TextBlock>
+                <TextBox x:Name="textInput"
                          Margin="5"
-                         Width="200"/>
-                <Button x:Name="btnFile"
+                         Width="400"/>
+                <Button x:Name="btnInput"
                         Content="Browse"
-                        Click="BtnFile_Click"
+                        Click="BtnInput_Click"
+                        ClickMode="Press"
+                        Margin="5"
+                        Padding="5 0 5 0"/>
+            </StackPanel>
+
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <TextBlock Margin="5">Output folder:</TextBlock>
+                <TextBox x:Name="textOutput"
+                         Margin="5"
+                         Width="400"/>
+                <Button x:Name="btnOutput"
+                        Content="Browse"
+                        Click="BtnOutput_Click"
                         ClickMode="Press"
                         Margin="5"
                         Padding="5 0 5 0"/>
@@ -25,18 +38,23 @@
                 <TextBlock Margin="5">Width:</TextBlock>
                 <TextBox x:Name="textWidth"
                          Margin="5"
-                         PreviewTextInput="PreviewTextInput"
+                         PreviewTextInput="NumberInput"
                          Width="100"/>
 
                 <TextBlock Margin="5">Height:</TextBlock>
                 <TextBox x:Name="textHeight"
                          Margin="5"
-                         PreviewTextInput="PreviewTextInput"
+                         PreviewTextInput="NumberInput"
                          Width="100"/>
             </StackPanel>
 
             <StackPanel Margin="15" Orientation="Horizontal">
                 <TextBlock Margin="5">Mode:</TextBlock>
+                <RadioButton x:Name="modeDefault"
+                             Content="Default"
+                             Checked="Mode_Checked"
+                             GroupName="mode"
+                             Margin="5"/>
                 <RadioButton x:Name="modeWiden"
                              Content="Widen"
                              Checked="Mode_Checked"
@@ -56,6 +74,40 @@
                              Content="Thumbnail"
                              Checked="Mode_Checked"
                              GroupName="mode"
+                             Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Margin="15" Orientation="Horizontal">
+                <TextBlock Margin="5">Output format:</TextBlock>
+                <RadioButton x:Name="formatDefault"
+                             Content="Default"
+                             Checked="Format_Checked"
+                             GroupName="format"
+                             Margin="5"/>
+                <RadioButton x:Name="formatJpg"
+                             Content="jpg"
+                             Checked="Format_Checked"
+                             GroupName="format"
+                             Margin="5"/>
+                <RadioButton x:Name="formatPng"
+                             Content="png"
+                             Checked="Format_Checked"
+                             GroupName="format"
+                             Margin="5"/>
+                <RadioButton x:Name="formatGif"
+                             Content="gif"
+                             Checked="Format_Checked"
+                             GroupName="format"
+                             Margin="5"/>
+                <RadioButton x:Name="formatBmp"
+                             Content="bmp"
+                             Checked="Format_Checked"
+                             GroupName="format"
+                             Margin="5"/>
+                <RadioButton x:Name="formatWebp"
+                             Content="webp"
+                             Checked="Format_Checked"
+                             GroupName="format"
                              Margin="5"/>
             </StackPanel>
 
