@@ -1,0 +1,28 @@
+ShadeSoft Imager Commercial License
+===================================
+
+Imager is licensed under the GPL v3.0, LGPL v3.0, MPL v2.0 and/or the
+"ShadeSoft Imager Commercial License" (SICL).
+This document describes the SICL.
+
+------------------------------------------------------------------------------
+
+The license is non-exclusively granted to a single person or company, per
+payment of the license fee, for the lifetime of that person or company.
+The license is non-transferrable.
+
+The SICL grants the licensee the right to use Imager in commercial
+closed-source projects. Modifications may be made to Imager with no
+obligation to release the modified source code.
+Imager (or pieces thereof) may be included in any number of projects
+authored (in whole or in part) by the licensee.
+
+The licensee may use any version of Imager, past, present or future, as is
+most convenient. This license does not entitle the licensee to receive any
+technical support, updates of bugfixes, except as such are made publicly
+available to all Imager users.
+
+The licensee may not sub-license Imager itself, meaning that any
+commercially released product containing all or parts of Imager must have
+added functionality beyond what is available in Imager; Imager itself may
+not be re-licensed by the licensee.
